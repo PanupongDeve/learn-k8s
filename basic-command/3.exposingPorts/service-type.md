@@ -1,4 +1,4 @@
-## cluseterIP
+## ClusterIP
 	- Single, internal virtual IP allocated
 	- Only reachable from whitin cluster (nodes and pods)
 	- Pods can reach service on apps port number
