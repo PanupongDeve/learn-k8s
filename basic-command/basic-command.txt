@@ -1,0 +1,25 @@
+kubectl run my-nginx --image nginx
+
+kubectl delete deployment my-nginx
+
+kubectl run pingpong --image alpine ping 1.1.1.1
+
+kubectl scale deploy/pingpong --replicas 3
+
+kubectl logs deploy/pingpong --tail 1 --follow
+
+watch microk8s.kubectl get all
+
+
+kubectl run --schedule="*/3 * * * *" --restart=OnFailure --image=alpine sleep 10
+
+kubectl get cronjobs
+
+kubectl logs -l run=pingpong --tail 1 -f
+
+
+### install stern - cli for logging pods ##
+
+sudo curl -L -o /usr/local/bin/stern https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64
+
+sudo chmod +x /usr/local/bin/stern
