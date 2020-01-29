@@ -1,0 +1,1 @@
+microk8s.kubectl expose deployment/web --port 80 --name web --namespace=nginx-web --type NodePort -o yaml --dry-run > service-web.yml

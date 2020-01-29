@@ -23,3 +23,31 @@ kubectl logs -l run=pingpong --tail 1 -f
 sudo curl -L -o /usr/local/bin/stern https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64
 
 sudo chmod +x /usr/local/bin/stern
+
+
+kubectl get pods -w
+
+kubectl expose deployment httpenv --port 8888
+
+
+
+# Test Cluster IP
+
+kubectl apply -f https://bret.run/shpod.yml
+
+kubectl attach --namespace=shpod -it shpod
+
+IP=$(kubectl get service httpenv -o go-template --template '{{ .spec.clusterIP }}')
+
+curl http://$IP:8888 | jq .HOSTNAME
+
+kubectl delete -f https://bret.run/shpod.yml
+
+#######
+
+kubectl get endpoints
+
+kubectl get endpoints httpenv -o yaml
+
+kubectl get pods -l app=httpenv -o wide
+

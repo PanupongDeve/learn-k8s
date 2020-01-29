@@ -1,0 +1,1 @@
+microk8s.kubectl create namespace nginx-web -o yaml --dry-run > namespace-web.yml
