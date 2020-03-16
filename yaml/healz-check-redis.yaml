@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name:   redis-with-liveness
+spec:
+    containers:
+        -   name:   redis
+            image:  redis
+            livenessProbe:
+                    exec:
+                        command: ["redis-cli", "ping"]

@@ -1,0 +1,1 @@
+microk8s.kubectl set iamge deploy worker worker=dockercoins/worker:v0.3
