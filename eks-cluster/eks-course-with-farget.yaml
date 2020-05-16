@@ -1,0 +1,12 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+        name: EKS-Fargate-course-cluster-test
+        region: ap-southeast-1
+
+fargateProfiles:
+        - name: farget-default
+          selectors:
+                - namespace: default
+                - namespace: kube-system

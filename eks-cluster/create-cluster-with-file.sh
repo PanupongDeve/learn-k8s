@@ -1,0 +1,1 @@
+eksctl create cluster -f eks-course-with-farget.yaml
